@@ -16,6 +16,7 @@ body {
   margin: 0;
   line-height: 2;
   font-family: $font-monospace;
+  font-weight: lighter;
 }
 
 button {
@@ -36,7 +37,22 @@ a {
   color: inherit;
 }
 
-body {
+.container {
+  width: 100%;
   max-width: 72em;
   margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-weight: inherit;
+  font-weight: normal;
+}
+
+.shell {
+  padding-top: 4em;
 }

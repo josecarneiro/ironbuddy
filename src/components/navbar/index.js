@@ -5,6 +5,8 @@ import "./style.scss";
 
 export default props => (
   <header className="navbar">
-    <IronBuddyLogo />
+    <div className="container">
+      <IronBuddyLogo />
+    </div>
   </header>
 );

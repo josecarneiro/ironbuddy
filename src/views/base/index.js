@@ -43,24 +43,35 @@ export default class BaseView extends Component {
     const { day } = this.state;
     const { events, schedule, handleOnDayChange } = this;
     return (
-      <main className="page page--base">
+      <div className="page page--base">
         <header>
           <h1>Welcome James Dean</h1>
         </header>
-        <section className="page__section page__section--event">
-          <h2>Events</h2>
-          <EventList events={events} />
-        </section>
-        <section className="page__section page__section--schedule">
-          <h2>Your Schedule</h2>
-          <DayInput day={day} onChange={handleOnDayChange} />
-          <ScheduleList schedule={schedule} />
-        </section>
-        <section className="page__section page__section--resources">
-          <h2>Things of Interest</h2>
-          <ResourceList resources={ [] } />
-        </section>
-      </main>
+        <main className="page__main">
+          <section className="page__section page__section--schedule">
+            <header className="page__section__header">
+              <h2>Today's Schedule</h2>
+              <a href="#">See More</a>
+            </header>
+            {/* <DayInput day={day} onChange={handleOnDayChange} /> */}
+            <ScheduleList schedule={schedule} />
+          </section>
+        </main>
+        <aside className="page__aside">
+          <section className="page__section page__section--event">
+            <h2>Events</h2>
+            <EventList events={events} />
+          </section>
+          <section className="page__section page__section--things-of-interest">
+            <h2>Things of Interest</h2>
+            <ResourceList resources={ [] } />
+          </section>
+          <section className="page__section page__section--resources">
+            <h2>Resources</h2>
+            <ResourceList resources={ [] } />
+          </section>
+        </aside>
+      </div>
     );
   }
 }

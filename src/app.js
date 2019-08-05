@@ -52,18 +52,18 @@ export default class AppWrapper extends Component {
 
   render () {
     return (
-      <div className="App">
+      <div className="shell">
         <Router>
           <Navbar />
-          {/* { this.state.loaded && <ViewBase { ...this.state } day={ this.day } /> } */}
-          <Route
-            path="/"
-            exact
-            // component={ViewBase}
-            render={ props => <ViewBase { ...props } { ...this.state } day={ this.day } />}
-          />
-          {/* <Route path="/about/" component={About} />
-          <Route path="/users/" component={Users} /> */}
+          <div className="container">
+            <Route
+              path="/"
+              exact
+              render={ props => <ViewBase { ...props } { ...this.state } day={ this.day } />}
+            />
+            {/* <Route path="/about/" component={About} />
+            <Route path="/users/" component={Users} /> */}
+          </div>
         </Router>
       </div>
     );
