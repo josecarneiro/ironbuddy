@@ -1,4 +1,7 @@
 $font-monospace: 'Roboto Mono', monospace;
+$font-sans-serif: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+// $font-body: $font-sans-serif;
+$font-body: $font-monospace;
 
 * {
   &,
@@ -15,8 +18,9 @@ html {
 body {
   margin: 0;
   line-height: 2;
-  font-family: $font-monospace;
-  font-weight: lighter;
+  font-family: $font-body;
+  // font-weight: lighter;
+  color: #121212;
 }
 
 button {

@@ -44,7 +44,7 @@ export default class BaseView extends Component {
     const { events, schedule, handleOnDayChange } = this;
     return (
       <div className="page page--base">
-        <header>
+        <header className="page__header">
           <h1>Welcome James Dean</h1>
         </header>
         <main className="page__main">
@@ -58,10 +58,12 @@ export default class BaseView extends Component {
           </section>
         </main>
         <aside className="page__aside">
-          <section className="page__section page__section--event">
-            <h2>Events</h2>
-            <EventList events={events} />
-          </section>
+          { !!events.length && (
+            <section className="page__section page__section--event">
+              <h2>Events</h2>
+              <EventList events={events} />
+            </section>
+          ) }
           <section className="page__section page__section--things-of-interest">
             <h2>Things of Interest</h2>
             <ResourceList resources={ [] } />

@@ -27,7 +27,7 @@ const AttachmentItem = ({ attachment: { url, name } }) => (
 const AttachmentList = ({ attachments }) => (
   <div className="attachment__list">
     { attachments.map(attachment =>
-      <AttachmentItem key={ attachments.id } attachment={ attachment }>Attachment</AttachmentItem>
+      <AttachmentItem key={ attachment.id } attachment={ attachment }>Attachment</AttachmentItem>
     )}
   </div>
 );
