@@ -1,0 +1,42 @@
+$font-monospace: 'Roboto Mono', monospace;
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 2;
+  font-family: $font-monospace;
+}
+
+button {
+  padding: 1em;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  max-width: 72em;
+  margin: 0 auto;
+}

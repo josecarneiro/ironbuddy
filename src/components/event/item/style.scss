@@ -1,0 +1,26 @@
+// $card-background: #efefef;
+$card-background: #fff;
+
+$meetup-color: hsl(342, 100%, 50%);
+// $meetup-color: hsl(350, 100%, 55%);
+// $meetup-color: #f13a59;
+
+.event__item {
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  background-color: $card-background;
+  background-color: var(--card-color, $card-background);
+  // box-shadow: 0 0.25em 0.5em 0 hsla(200, 20%, 50%, 0.15);
+  box-shadow: 0 0.125em 1em -0.25em var(--card-color, hsla(0, 0, 20%, 0.15));
+  display: flex;
+  flex-direction: column;
+  a {
+    text-align: right;
+  }
+}
+
+.event__item--meetup {
+  --card-color: #{$meetup-color};
+  color: white;
+}
