@@ -1,0 +1,27 @@
+.icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  font-family: "Material Icons";
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1em;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga";
+  & + span {
+    margin-left: 1em;
+  }
+  // @each $name, $value in $icons {
+  //   &.icon--#{$name} {
+  //     &:before {
+  //       content: quote($value);
+  //     }
+  //   }
+  // }
+}

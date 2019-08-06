@@ -1,12 +1,11 @@
 import React from "react";
+import CardList from "./../../elements/card/list";
 import EventItem from "./../item";
 
-import "./style.scss";
-
 export default ({ events }) => (
-  <div className="schedule__list">
+  <CardList className="schedule__list">
     { events.map(event => (
       <EventItem key={ event.id } { ...{ event } } />
     )) }
-  </div>
+  </CardList>
 );

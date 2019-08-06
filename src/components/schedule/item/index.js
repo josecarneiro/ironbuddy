@@ -1,7 +1,8 @@
 import React from "react";
-import classNames from "classnames";
 
-import Anchor from './../../anchor';
+import Card from './../../elements/card';
+import ElementAnchor from './../../elements/anchor';
+import ElementIcon from './../../elements/icon';
 
 import "./style.scss";
 
@@ -20,7 +21,9 @@ const TopicList = ({ topics }) => (
 const AttachmentItem = ({ attachment: { url, name } }) => (
   <div className="attachment__item">
     {/* <Anchor url={ url }>{ name }</Anchor> */}
-    <Anchor url={ url }>-></Anchor>
+    <ElementAnchor url={ url }>
+      <ElementIcon icon="keyboard_arrow_right" />
+    </ElementAnchor>
   </div>
 );
 
@@ -40,16 +43,17 @@ export default ({
     attachments
   }
 }) => {
-  const classes = classNames("schedule__item", {
+  const classes = [ "schedule__item", {
     ...type && {
       [`schedule__item--${type}`]: true
     }
-  });
+  }];
   return (
-    <div className={classes}>
+    <Card classes={classes}>
       {!!topics.length && <TopicList topics={ topics } />}
       <span>{name}</span>
       {!!attachments.length && <AttachmentList attachments={ attachments } />}
-    </div>
+      {/* <Icon icon="arrow_right"/> */}
+    </Card>
   );
 };

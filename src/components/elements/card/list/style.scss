@@ -1,0 +1,10 @@
+// $card-background: #efefef;
+$card-background: #fff;
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  .card {
+    margin-bottom: 1em;
+  }
+}

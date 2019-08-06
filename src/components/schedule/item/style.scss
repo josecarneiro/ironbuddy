@@ -1,24 +1,4 @@
-// $card-background: #efefef;
-$card-background: #fff;
-
-$green: rgb(100, 204, 40);
-$blue: hsl(200, 75%, 50%);
-$yellow: hsl(47, 100%, 50%);
-$purple: hsl(263, 100%, 50%);
-
-.schedule__item {
-  padding: 1em;
-  padding: 0.75em 1em;
-  margin-bottom: 1em;
-  border-radius: 0.5em;
-  // border-radius: 0.25em;
-  background-color: $card-background;
-  background-color: var(--card-color, $card-background);
-  // box-shadow: 0 0.25em 0.5em 0 hsla(200, 20%, 50%, 0.15);
-  box-shadow: 0 0.125em 1em -0.25em var(--card-color, hsla(0, 0, 20%, 0.15));
-  display: flex;
-  flex-direction: column;
-}
+@import "./../../../style/variables";
 
 .schedule__item--lesson {
   --card-color: #{$blue};
@@ -41,10 +21,17 @@ $purple: hsl(263, 100%, 50%);
   color: white;
 }
 
+@mixin uppercase () {
+  text-transform: uppercase;
+  letter-spacing: 1 / 2 / 16 * 1em;
+}
+
 .topic__list {
   display: flex;
-  // margin-top: -1em;
+  margin-top: -1rem;
   font-size: 0.75em;
+  text-transform: uppercase;
+  @include uppercase;
 }
 
 .topic__item {

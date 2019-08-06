@@ -7,7 +7,7 @@ import loadBoardData from "./services/board";
 import ViewBase from "./views/base/index";
 import Navbar from "./components/navbar";
 
-import "./styles.scss";
+import "./style/index.scss";
 
 export default class AppWrapper extends Component {
   constructor (...args) {

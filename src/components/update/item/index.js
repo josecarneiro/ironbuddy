@@ -1,6 +1,8 @@
 import React from "react";
-import Card from './../../elements/card';
-import Anchor from './../../elements/anchor';
+
+import Card from './../../card';
+import Anchor from '../../elements/anchor';
+import ElementDate from './../../elements/date';
 
 import "./style.scss";
 
@@ -16,7 +18,7 @@ const TopicList = ({ topics }) => (
   </div>
 );
 
-const EventDate = ({ date }) => date instanceof Date && <time dateTime={ date.toISOString() }>{ date.toLocaleString().replace(/:00$/, '') }</time>;
+const EventDate = ElementDate;
 
 export default ({
   event: {
@@ -34,8 +36,14 @@ export default ({
   }];
   return (
     <Card classes={classes}>
-      {date && <small><EventDate date={ date }></EventDate></small>}
-      {!!topics.length && <TopicList topics={ topics } />}
+      { date && (
+        <small>
+          <EventDate date={ date }></EventDate>
+        </small>
+      ) }
+      { !!topics.length && (
+        <TopicList topics={ topics } />
+      ) }
       <span>{name}</span>
       <Anchor url={ link.url }>-></Anchor>
     </Card>

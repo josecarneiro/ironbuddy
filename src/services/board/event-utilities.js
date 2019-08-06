@@ -6,7 +6,6 @@
 
 // const extractEventLinkFromAttachments = attachments => (attachments.find(({ bytes }) => !bytes) || {});
 const extractEventLinkFromAttachments = attachments => {
-  console.log(attachments);
   return (attachments.find(({ isFile }) => !isFile) || {});
 };
 
@@ -20,8 +19,7 @@ const extractEventTypeFromBody = body => {
 }
 
 export const extractEventsFromBoard = board => {
-  // debugger;
-  const column = board.columns
+  const events = board.columns
     .filter(({ name }) => name.toLowerCase().includes("events"))
     .map(({ cards }) => cards)
     .find(item => item)
@@ -33,7 +31,5 @@ export const extractEventsFromBoard = board => {
       description: extractEventDescriptionFromBody(body),
       ...event
     }));
-  if (!column) return [];
-  const events = column;
-  return events;
+  return events || [];
 }

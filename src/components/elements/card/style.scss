@@ -1,0 +1,19 @@
+$card-background: #fff;
+$card-default-shadow-color: hsla(0, 0, 20%, 0.15);
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  background-color: $card-background;
+  background-color: var(--card-color, $card-background);
+  box-shadow: 0 0.125em 1em -0.25em $card-default-shadow-color;
+  box-shadow: 0 0.125em 1em -0.25em var(--card-color, $card-default-shadow-color);
+  a {
+    display: inline-flex;
+    text-align: right;
+  }
+}

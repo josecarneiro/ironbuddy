@@ -1,0 +1,15 @@
+$font-monospace: 'Roboto Mono', monospace;
+$font-sans-serif: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+
+$breakpoint-mobile: 32em;
+$breakpoint-tablet: 48em;
+$breakpoint-desktop: 64em;
+
+$green: rgb(100, 204, 40);
+$blue: hsl(200, 75%, 50%);
+$yellow: hsl(47, 100%, 50%);
+$purple: hsl(263, 100%, 50%);
+
+// Options
+// $font-body: $font-sans-serif;
+$font-body: $font-monospace;

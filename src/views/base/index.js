@@ -60,6 +60,12 @@ export default class BaseView extends Component {
         <aside className="page__aside">
           { !!events.length && (
             <section className="page__section page__section--event">
+              <h2>Campus News</h2>
+              <EventList events={events} />
+            </section>
+          ) }
+          { !!events.length && (
+            <section className="page__section page__section--event">
               <h2>Events</h2>
               <EventList events={events} />
             </section>
