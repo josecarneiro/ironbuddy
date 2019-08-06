@@ -3,28 +3,27 @@ import React, { Component } from "react";
 import ScheduleList from "./../../components/schedule/list";
 import EventList from "./../../components/event/list";
 import ResourceList from "./../../components/resource/list";
-import DayInput from "./../../components/input/day/index";
+import ElementAnchor from "./../../components/elements/anchor";
 
 import "./style.scss";
 
 export default class BaseView extends Component {
   constructor(...props) {
     super(...props);
-    this.state = {
-      day: props[0].day
-    };
-    this.handleOnDayChange = this.handleOnDayChange.bind(this);
+    // this.state = {
+    //   day: props[0].day
+    // };
   }
 
   get schedule() {
-    const { day } = this.state;
+    const { day } = this.props;
     const { schedule = [] } = this.props;
     const index = day - 1;
     return schedule[index] ? schedule[index].items : [];
   }
 
   get events() {
-    const { day } = this.state;
+    const { day } = this.props;
     const { events = [] } = this.props;
     console.log(events);
     return events
@@ -35,12 +34,8 @@ export default class BaseView extends Component {
       });
   }
 
-  handleOnDayChange(day) {
-    this.setState({ day });
-  }
-
   render() {
-    const { day } = this.state;
+    const { day } = this.props;
     const { events, schedule, handleOnDayChange } = this;
     return (
       <div className="page page--base">
@@ -51,9 +46,8 @@ export default class BaseView extends Component {
           <section className="page__section page__section--schedule">
             <header className="page__section__header">
               <h2>Today's Schedule</h2>
-              <a href="#">See More</a>
+              <ElementAnchor link="/schedule">See More</ElementAnchor>
             </header>
-            {/* <DayInput day={day} onChange={handleOnDayChange} /> */}
             <ScheduleList schedule={schedule} />
           </section>
         </main>

@@ -14,13 +14,12 @@ const Topic = ({ topic }) => (
 
 const TopicList = ({ topics }) => (
   <div className="topic__list">
-    { topics.map(topic => <Topic key={ topic } topic={ topic } />) }
+    { topics.map(topic => <Topic key={ topic } { ...{ topic } } />) }
   </div>
 );
 
 const AttachmentItem = ({ attachment: { url, name } }) => (
   <div className="attachment__item">
-    {/* <Anchor url={ url }>{ name }</Anchor> */}
     <ElementAnchor url={ url }>
       <ElementIcon icon="keyboard_arrow_right" />
     </ElementAnchor>
@@ -30,8 +29,8 @@ const AttachmentItem = ({ attachment: { url, name } }) => (
 const AttachmentList = ({ attachments }) => (
   <div className="attachment__list">
     { attachments.map(attachment =>
-      <AttachmentItem key={ attachment.id } attachment={ attachment }>Attachment</AttachmentItem>
-    )}
+      <AttachmentItem key={ attachment.id } { ...{ attachment } } />
+    ) }
   </div>
 );
 
@@ -50,10 +49,9 @@ export default ({
   }];
   return (
     <Card classes={classes}>
-      {!!topics.length && <TopicList topics={ topics } />}
+      { !!topics.length && <TopicList topics={ topics } /> }
       <span>{name}</span>
-      {!!attachments.length && <AttachmentList attachments={ attachments } />}
-      {/* <Icon icon="arrow_right"/> */}
+      { !!attachments.length && <AttachmentList { ...{ attachments } } /> }
     </Card>
   );
 };
