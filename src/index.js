@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./app";
 import * as serviceWorker from './service-worker';
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("shell");
 ReactDOM.render(<App />, rootElement);
 
 // If you want your app to work offline and load faster, you can change

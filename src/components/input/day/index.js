@@ -1,4 +1,7 @@
 import React from "react";
+
+import ElementIcon from './../../elements/icon';
+
 import "./style.scss";
 
 const dateFromDay = day => ({
@@ -19,11 +22,15 @@ export default ({
 
   return (
     <div className="day-selector">
-      <button onClick={handler(day - 1)}>-</button>
-      <button onClick={handler(day + 1)}>+</button>
+      <button onClick={handler(day - 1)}>
+        <ElementIcon icon="keyboard_arrow_left" />
+      </button>
       <span>
         Week {dateFromDay(day).week} - Day {dateFromDay(day).day}
       </span>
+      <button onClick={handler(day + 1)}>
+        <ElementIcon icon="keyboard_arrow_right" />
+      </button>
     </div>
   );
 };

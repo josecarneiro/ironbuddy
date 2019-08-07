@@ -1,7 +1,7 @@
 import React from "react";
 
-import Card from './../../card';
-import Anchor from '../../elements/anchor';
+import Card from './../../elements/card';
+import Anchor from './../../elements/anchor';
 import ElementDate from './../../elements/date';
 
 import "./style.scss";

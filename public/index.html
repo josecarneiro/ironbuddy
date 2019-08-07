@@ -9,10 +9,8 @@
     <meta name="apple-mobile-web-app-title" content="Iron">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700&display=swap" rel="stylesheet">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
+    <link rel="dns-prefetch" href="https://api.trello.com">
+    <link rel="dns-prefetch" href="https://spreadsheets.google.com">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <!--
@@ -26,9 +24,8 @@
     -->
     <title>Iron</title>
   </head>
-
   <body>
     <noscript>Please, enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="shell"></div>
   </body>
 </html>

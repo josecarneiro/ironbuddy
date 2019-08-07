@@ -6,7 +6,7 @@
 
 .page--base {
   padding: 0 1em;
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-tablet) {
     display: grid;
     grid-gap: 1em;
     grid-template-columns: [col1-start] auto [col2-start] 35% [col2-end];
@@ -34,6 +34,12 @@
   @media (min-width: $breakpoint-mobile) {
     padding: 2em 0;
   }
+}
+
+.page__header,
+.page__section {
+  display: flex;
+  flex-direction: column;
 }
 
 .page__main,

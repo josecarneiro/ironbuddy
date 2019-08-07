@@ -11,6 +11,10 @@ import Navbar from "./components/navbar";
 
 import "./style/index.scss";
 
+const calculateDay = (start, current, { max = Infinity, min = -Infinity } = {}) => {
+  return Math.min(max, Math.max(min, Math.floor((current - start) / 60 / 60 / 24 / 1000) + 1));
+};
+
 export default class AppWrapper extends Component {
   constructor (...args) {
     super(...args);
@@ -27,7 +31,7 @@ export default class AppWrapper extends Component {
   get day () {
     const { configuration: { start_date: startDate } } = this.state;
     if (!startDate) return 1;
-    return Math.floor((new Date() - startDate) / 60 / 60 / 24 / 1000);
+    return calculateDay(startDate, new Date(), { min: 0, max: 50 });
   }
 
   async componentDidMount() {

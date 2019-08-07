@@ -40,6 +40,18 @@
   color: var(--card-color, inherit);
 }
 
+.attachment__list {
+  display: flex;
+  .attachment__item {
+    &:first-child {
+      margin-left: auto;
+    }
+  }
+}
+
 .attachment__item {
-  text-align: right;
+  // text-align: right;
+  // display: flex;
+  justify-self: flex-end;
+  display: flex;
 }
