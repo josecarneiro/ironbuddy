@@ -35,9 +35,12 @@
 }
 
 .topic__item {
-  background-color: white;
   padding: 0 0.5em;
+  background-color: white;
   color: var(--card-color, inherit);
+  &:not(:last-child) {
+    margin-right: 0.5em;
+  }
 }
 
 .attachment__list {
