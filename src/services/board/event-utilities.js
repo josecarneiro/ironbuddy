@@ -5,24 +5,21 @@
 // }
 
 // const extractEventLinkFromAttachments = attachments => (attachments.find(({ bytes }) => !bytes) || {});
-const extractEventLinkFromAttachments = attachments => {
-  return (attachments.find(({ isFile }) => !isFile) || {});
-};
+const extractEventLinkFromAttachments = attachments => (attachments.find(({ isFile }) => !isFile) || {});
 
-const extractEventDescriptionFromBody = body => {
-  return body.replace(/\[Link\]\((.*?)\)/, '').trim();
-}
+const extractEventDescriptionFromBody = body =>  body && body.replace(/\[Link\]\((.*?)\)/, '').trim();
 
 const extractEventTypeFromBody = body => {
-  if (body.toLowerCase().includes('meetup')) return 'meetup';
+  if (body && body.toLowerCase().includes('meetup')) return 'meetup';
   return null;
-}
+};
 
 export const extractEventsFromBoard = board => {
   const events = board.columns
     .filter(({ name }) => name.toLowerCase().includes("events"))
     .map(({ cards }) => cards)
-    .find(item => item)
+    .find(item => item);
+  return (events || [])
     .map(({ id, name, body, attachments, ...event }) => ({
       id,
       type: extractEventTypeFromBody(body),
@@ -31,5 +28,4 @@ export const extractEventsFromBoard = board => {
       description: extractEventDescriptionFromBody(body),
       ...event
     }));
-  return events || [];
-}
+};

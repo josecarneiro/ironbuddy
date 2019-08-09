@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import loadSpreadsheetData from "./services/spreadsheet";
 import loadBoardData from "./services/board";
@@ -68,8 +68,7 @@ export default class AppWrapper extends Component {
               render={ props => <ViewBase { ...props } { ...this.state } day={ this.day } />}
             />
             <Route
-              path="/schedule"
-              exact
+              path="/schedule/:day"
               render={ props => <ViewSchedule { ...props } { ...this.state } day={ this.day } />}
             />
             {/* <Route path="/about/" component={About} />

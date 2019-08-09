@@ -1,8 +1,9 @@
 import React from "react";
 
-import Card from './../../elements/card';
-import ElementAnchor from './../../elements/anchor';
-import ElementIcon from './../../elements/icon';
+import CardList from "./../elements/card/list";
+import Card from './../elements/card';
+import ElementAnchor from './../elements/anchor';
+import ElementIcon from './../elements/icon';
 
 import "./style.scss";
 
@@ -19,11 +20,10 @@ const TopicList = ({ topics }) => (
 );
 
 const AttachmentItem = ({ attachment: { url, name } }) => (
-  <div className="attachment__item">
-    <ElementAnchor url={ url }>
-      <ElementIcon icon="keyboard_arrow_right" />
-    </ElementAnchor>
-  </div>
+  <ElementAnchor className="attachment__item" url={ url }>
+    <span>{ name }</span>
+    <ElementIcon icon="keyboard_arrow_right" />
+  </ElementAnchor>
 );
 
 const AttachmentList = ({ attachments }) => (
@@ -34,7 +34,7 @@ const AttachmentList = ({ attachments }) => (
   </div>
 );
 
-export default ({
+const ScheduleItem = ({
   item: {
     type,
     name,
@@ -55,3 +55,11 @@ export default ({
     </Card>
   );
 };
+
+export default ({ schedule }) => (
+  <CardList className="schedule__list">
+    { schedule.map(item => (
+      <ScheduleItem key={ item.id } { ...{ item } } />
+    )) }
+  </CardList>
+);

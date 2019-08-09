@@ -1,33 +1,23 @@
 import React, { Component } from "react";
 
-import ScheduleList from "./../../components/schedule/list";
-import DayInput from "./../../components/input/day/index";
-
-// import "./style.scss";
+import ScheduleList from "./../../components/schedule";
+import ScheduleNavigator from "./../../components/schedule/navigator";
 
 export default class ScheduleView extends Component {
-  constructor(...props) {
-    super(...props);
-    this.state = {
-      day: props[0].day
-    };
-    this.handleOnDayChange = this.handleOnDayChange.bind(this);
+  get day () {
+    const { match: { params: { day } } } = this.props;
+    return day;
   }
 
   get schedule() {
-    const { day } = this.state;
+    const { day } = this;
     const { schedule = [] } = this.props;
     const index = day - 1;
     return schedule[index] ? schedule[index].items : [];
   }
 
-  handleOnDayChange(day) {
-    this.setState({ day });
-  }
-
   render() {
-    const { day } = this.state;
-    const { schedule, handleOnDayChange } = this;
+    const { schedule, day } = this;
     return (
       <div className="page page--schedule">
         <main className="page__main">
@@ -35,7 +25,7 @@ export default class ScheduleView extends Component {
             <header className="page__section__header">
               <h2>Schedule</h2>
             </header>
-            <DayInput day={day} onChange={handleOnDayChange} />
+            <ScheduleNavigator day={day}/>
             <ScheduleList schedule={schedule} />
           </section>
         </main>

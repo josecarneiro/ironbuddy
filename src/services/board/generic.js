@@ -1,8 +1,10 @@
 import axios from "axios";
 import { makeQuery } from "./../../util/url";
 
+const TRELLO_API_URL = 'https://api.trello.com/1';
+
 const makeURL = ({ id }) =>
-  `https://api.trello.com/1/boards/${id}?${makeQuery({
+  `${ TRELLO_API_URL }/boards/${id}?${makeQuery({
     fields: [
       // "all",
       // "id",
@@ -29,12 +31,10 @@ const makeURL = ({ id }) =>
     card_fields: [
       "id",
       "name",
-      "desc",
+      // "desc",
       "due",
       "labels",
       "idList",
-      // "badges",
-      // "idAttachmentCover",
       "manualCoverAttachment"
       // "shortLink"
     ],
@@ -97,7 +97,6 @@ export default async ({ id }) => {
   try {
     const result = await axios.get(URL);
     const data = boardParser(result.data);
-    console.log(data);
     return data;
   } catch (error) {
     console.log("Error loading board");

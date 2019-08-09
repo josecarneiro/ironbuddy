@@ -5,9 +5,14 @@ export default ({
   url,
   external = true,
   link,
-  children
+  children,
+  ...props
 }) => link ? (
-  <Link to={ link }>{ children }</Link>
+  <Link to={ link } { ...props }>{ children }</Link>
 ) : (
-  <a href={ url } { ...external && { target: '_blank', rel: "noreferrer" } }>{ children }</a>
+  <a
+    href={ url }
+    { ...external && { target: '_blank', rel: "noreferrer" } }
+    { ...props }
+  >{ children }</a>
 );

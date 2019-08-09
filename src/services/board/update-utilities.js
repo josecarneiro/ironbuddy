@@ -15,11 +15,15 @@ export const extractUpdatesFromBoard = board => {
   const updates = board.columns
     .filter(({ name }) => name.toLowerCase().includes("campus"))
     .map(({ cards }) => cards)
-    .find(item => item)
-    .map(({ id, name: title, body: description }) => ({
+    .find(item => item);
+  return (updates || [])
+    .map(({
+      id,
+      name: title,
+      body: description
+    }) => ({
       id,
       title,
       description: description || null
     }));
-  return updates || [];
 }

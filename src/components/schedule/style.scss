@@ -1,4 +1,4 @@
-@import "./../../../style/variables";
+@import "./../../style/variables";
 
 .schedule__item--lesson {
   --card-color: #{$blue};
@@ -45,16 +45,29 @@
 
 .attachment__list {
   display: flex;
-  .attachment__item {
-    &:first-child {
-      margin-left: auto;
-    }
-  }
+  flex-direction: column;
+  align-items: flex-end;
+  // .attachment__item {
+  //   &:first-child {
+  //     margin-left: auto;
+  //   }
+  // }
 }
 
 .attachment__item {
-  // text-align: right;
-  // display: flex;
-  justify-self: flex-end;
   display: flex;
+  align-items: center;
+  .icon {
+    margin-left: 0.5em;
+  }
+}
+
+.schedule__navigator {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  a {
+    padding: 1em;
+    font-size: 1.25em;
+  }
 }
