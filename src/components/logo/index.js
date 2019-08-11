@@ -4,7 +4,8 @@ import "./style.scss";
 
 export default props => (
   <div className="logo">
-    <img src="./ironhack-logo.svg" />
+    {/* <img src="./ironbuddy-logo.svg" alt="Ironbuddy" /> */}
+    <img src="/ironbuddy-logo.svg" alt="Ironbuddy" />
     <span>IronBuddy</span>
   </div>
 );
