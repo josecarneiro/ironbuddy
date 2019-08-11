@@ -1,11 +1,12 @@
 @import './../../style/variables';
 
 .page {
+  padding: 0 1em;
   margin-top: 1em;
 }
 
 .page--base {
-  padding: 0 1em;
+  // padding: 0 1em;
   @media (min-width: $breakpoint-tablet) {
     display: grid;
     grid-gap: 1em;

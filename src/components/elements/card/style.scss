@@ -12,6 +12,7 @@ $card-default-shadow-color: hsla(0, 0, 20%, 0.15);
   background-color: var(--card-color, $card-background);
   box-shadow: 0 0.125em 1em -0.25em $card-default-shadow-color;
   box-shadow: 0 0.125em 1em -0.25em var(--card-color, $card-default-shadow-color);
+  overflow: hidden;
   a {
     display: inline-flex;
     text-align: right;

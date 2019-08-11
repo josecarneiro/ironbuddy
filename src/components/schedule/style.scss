@@ -34,10 +34,13 @@
   @include uppercase;
 }
 
+$card-default-shadow-color: hsla(0, 0, 20%, 0.15);
+
 .topic__item {
   padding: 0 0.5em;
   background-color: white;
   color: var(--card-color, inherit);
+  box-shadow: 0 0.125em 1em -0.25em $card-default-shadow-color;
   &:not(:last-child) {
     margin-right: 0.5em;
   }

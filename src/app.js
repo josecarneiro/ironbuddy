@@ -11,6 +11,16 @@ import Navbar from "./components/navbar";
 
 import "./style/index.scss";
 
+import { version } from './config';
+
+const AppFooter = () => (
+  <footer className="app__footer">
+    <div className="container">
+      <small>App Version { version }</small>
+    </div>
+  </footer>
+);
+
 const calculateDay = (start, current, { max = Infinity, min = -Infinity } = {}) => {
   return Math.min(max, Math.max(min, Math.floor((current - start) / 60 / 60 / 24 / 1000) + 1));
 };
@@ -74,6 +84,7 @@ export default class AppWrapper extends Component {
             {/* <Route path="/about/" component={About} />
             <Route path="/users/" component={Users} /> */}
           </div>
+          {/* <AppFooter /> */}
         </Router>
       </div>
     );
