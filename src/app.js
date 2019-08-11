@@ -11,7 +11,7 @@ import Navbar from "./components/navbar";
 
 import "./style/index.scss";
 
-import { version } from './config';
+import { version, extensionURL } from './config';
 
 const AppFooter = () => (
   <footer className="app__footer">
@@ -24,6 +24,11 @@ const AppFooter = () => (
 const calculateDay = (start, current, { max = Infinity, min = -Infinity } = {}) => {
   return Math.min(max, Math.max(min, Math.floor((current - start) / 60 / 60 / 24 / 1000) + 1));
 };
+
+const RedirectToExternal = ({ path, to }) => <Route path={ path } component={ () => {
+  window.location = to;
+  return;
+} } />;
 
 export default class AppWrapper extends Component {
   constructor (...args) {
@@ -67,6 +72,7 @@ export default class AppWrapper extends Component {
   }
 
   render () {
+    const viewProps = { ...this.state, day: this.day };
     return (
       <div className="shell">
         <Router>
@@ -75,14 +81,13 @@ export default class AppWrapper extends Component {
             <Route
               path="/"
               exact
-              render={ props => <ViewBase { ...props } { ...this.state } day={ this.day } />}
+              render={ props => <ViewBase { ...props } { ...viewProps } />}
             />
             <Route
               path="/schedule/:day"
-              render={ props => <ViewSchedule { ...props } { ...this.state } day={ this.day } />}
+              render={ props => <ViewSchedule { ...props } { ...viewProps } />}
             />
-            {/* <Route path="/about/" component={About} />
-            <Route path="/users/" component={Users} /> */}
+            <RedirectToExternal path="/extension" to={ extensionURL } />
           </div>
           {/* <AppFooter /> */}
         </Router>

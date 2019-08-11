@@ -2,12 +2,11 @@
 
 import { version } from './../package.json';
 
-console.log( version);
-
 const {
   NODE_ENV: environment,
   REACT_APP_SPREADSHEET_ID: spreadsheetId,
-  REACT_APP_BOARD_ID: boardId
+  REACT_APP_BOARD_ID: boardId,
+  REACT_APP_EXTENSION_URL: extensionURL = 'https://chrome.google.com/webstore/detail/ironbuddy/hfoemkojdhheooepbjmjdhenmmijpgkf'
 } = process.env;
 
 const environmentIsProduction = environment === 'production';
@@ -17,9 +16,8 @@ export {
   boardId,
   version,
   environment,
-  environmentIsProduction
+  environmentIsProduction,
+  extensionURL
 };
 export const startDate = new Date();
 export const bootcampDuration = !environmentIsProduction ? 50 : 15;
-
-console.log(process.env);
