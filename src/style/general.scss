@@ -37,6 +37,8 @@ a {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 72em;
   margin: 0 auto;
@@ -54,5 +56,13 @@ h4 {
 }
 
 .shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding-top: 4em;
+}
+
+.page {
+  // padding: 0 1em;
+  margin-top: 1em;
 }

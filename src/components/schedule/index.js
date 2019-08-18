@@ -42,7 +42,7 @@ const ScheduleItem = ({
     attachments
   }
 }) => {
-  const classes = [ "schedule__item", {
+  const classes = [ 'schedule__item', {
     ...type && {
       [`schedule__item--${type}`]: true
     }

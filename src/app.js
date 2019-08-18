@@ -7,28 +7,18 @@ import loadBoardData from "./services/board";
 import ViewBase from "./views/base/index";
 import ViewSchedule from "./views/schedule/index";
 
-import ElementAnchor from "./components/elements/anchor";
 import Navbar from "./components/navbar";
+import AppFooter from './components/footer';
 
 import "./style/index.scss";
 
 import {
-  version,
   extensionURL, 
   bootcampStartDate,
   bootcampDuration
 } from './config';
 
 import { calculateDay } from './util/day';
-
-const AppFooter = () => (
-  <footer className="app__footer">
-    <div className="container">
-      <small>App Version { version }</small>
-      <ElementAnchor>About IronBuddy</ElementAnchor>
-    </div>
-  </footer>
-);
 
 const RedirectToExternal = ({ path, to }) => <Route path={ path } component={ () => {
   window.location = to;
@@ -85,7 +75,6 @@ export default class AppWrapper extends Component {
   render () {
     const viewProps = { ...this.state, day: this.day };
     return (
-      <div className="shell">
         <Router>
           <Navbar />
           <div className="container">
@@ -100,9 +89,8 @@ export default class AppWrapper extends Component {
             />
             <RedirectToExternal path="/extension" to={ extensionURL } />
           </div>
-          {/* <AppFooter /> */}
+          <AppFooter />
         </Router>
-      </div>
     );
   }
 };

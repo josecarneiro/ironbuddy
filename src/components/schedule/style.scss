@@ -1,23 +1,40 @@
 @import "./../../style/variables";
 
+.schedule__item {
+  & > span {
+    // font-weight: bold;
+    // font-size: 1.125em;
+  }
+  &.card {
+    overflow: initial;
+  }
+}
+
 .schedule__item--lesson {
-  --card-color: #{$blue};
+  --card-color: #{ $blue };
   color: white;
 }
 
 .schedule__item--lab,
 .schedule__item--exercise {
-  --card-color: #{$green};
+  // --card-color: #{ $yellow };
+  --card-color: #{ $green };
   color: white;
 }
 
 .schedule__item--review {
-  --card-color: #{$purple};
+  // --card-color: #{ $purple };
+  --card-color: #{ $yellow };
   color: white;
 }
 
 .schedule__item--null {
-  --card-color: #{$yellow};
+  --card-color: #{ $yellow };
+  color: white;
+}
+
+.schedule__item--career {
+  --card-color: #{ $red };
   color: white;
 }
 
@@ -29,6 +46,7 @@
 .topic__list {
   display: flex;
   margin-top: -1rem;
+  margin-top: -1.5rem;
   font-size: 0.75em;
   text-transform: uppercase;
   @include uppercase;
@@ -50,16 +68,12 @@ $card-default-shadow-color: hsla(0, 0, 20%, 0.15);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  // .attachment__item {
-  //   &:first-child {
-  //     margin-left: auto;
-  //   }
-  // }
 }
 
 .attachment__item {
   display: flex;
   align-items: center;
+  font-size: 0.875em;
   .icon {
     margin-left: 0.5em;
   }
