@@ -1,0 +1,13 @@
+{
+  "name": "ironbuddy-extension",
+  "version": "0.0.1",
+  "main": "build-extension.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ./build-extension.js"
+  },
+  "dependencies": {
+    "archiver": "^3.1.1",
+    "mkdirp": "^0.5.1"
+  }
+}

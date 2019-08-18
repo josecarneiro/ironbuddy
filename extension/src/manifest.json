@@ -1,0 +1,13 @@
+{
+   "chrome_url_overrides": {
+      "newtab": "index.html"
+   },
+   "description": "IronBuddy",
+   "icons": {
+      "128": "ironbuddy-icon.png"
+   },
+   "manifest_version": 2,
+   "name": "IronBuddy",
+   "short_name": "IronBuddy",
+   "version": "0.0.0.2"
+}

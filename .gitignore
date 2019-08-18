@@ -3,7 +3,7 @@ node_modules
 .vscode
 
 # /coverage
-# /build
+build
 
 # .env*
-# *.log*
+*.log*
