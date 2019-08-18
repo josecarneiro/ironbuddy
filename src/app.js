@@ -7,23 +7,28 @@ import loadBoardData from "./services/board";
 import ViewBase from "./views/base/index";
 import ViewSchedule from "./views/schedule/index";
 
+import ElementAnchor from "./components/elements/anchor";
 import Navbar from "./components/navbar";
 
 import "./style/index.scss";
 
-import { version, extensionURL } from './config';
+import {
+  version,
+  extensionURL, 
+  bootcampStartDate,
+  bootcampDuration
+} from './config';
+
+import { calculateDay } from './util/day';
 
 const AppFooter = () => (
   <footer className="app__footer">
     <div className="container">
       <small>App Version { version }</small>
+      <ElementAnchor>About IronBuddy</ElementAnchor>
     </div>
   </footer>
 );
-
-const calculateDay = (start, current, { max = Infinity, min = -Infinity } = {}) => {
-  return Math.min(max, Math.max(min, Math.floor((current - start) / 60 / 60 / 24 / 1000) + 1));
-};
 
 const RedirectToExternal = ({ path, to }) => <Route path={ path } component={ () => {
   window.location = to;
@@ -33,6 +38,10 @@ const RedirectToExternal = ({ path, to }) => <Route path={ path } component={ (
 export default class AppWrapper extends Component {
   constructor (...args) {
     super(...args);
+    this._config = {
+      bootcampStartDate,
+      bootcampDuration
+    };
     this.state = {
       configuration: {},
       schedule: [],
@@ -44,9 +53,11 @@ export default class AppWrapper extends Component {
   }
 
   get day () {
-    const { configuration: { start_date: startDate } } = this.state;
+    const { bootcampStartDate: startDate } = this._config;
     if (!startDate) return 1;
-    return calculateDay(startDate, new Date(), { min: 0, max: 50 });
+    const now = new Date();
+    // const now = new Date(2019, 7, 19);
+    return calculateDay(startDate, now, { min: 0, max: 50 });
   }
 
   async componentDidMount() {

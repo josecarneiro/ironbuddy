@@ -2,15 +2,12 @@ import React from "react";
 
 import { bootcampDuration } from "./../../config";
 
+import { calculateDateFromDay } from './../../util/day';
+
 import ElementIcon from './../elements/icon';
 import Anchor from './../elements/anchor';
 
 import "./style.scss";
-
-const dateFromDay = day => ({
-  day: ((day - 1) % 5) + 1,
-  week: Math.floor((day - 1) / 5) + 1
-});
 
 export default ({
   day,
@@ -19,13 +16,15 @@ export default ({
 }) => {
   const parseValue = delta => Math.min(max, Math.max(min, parseInt(day) + delta));
 
+  const date = calculateDateFromDay(day);
+
   return (
     <div className="schedule__navigator">
       <Anchor link={ `/schedule/${ parseValue(-1) }`}>
         <ElementIcon icon="keyboard_arrow_left" />
       </Anchor>
       <span>
-        Week {dateFromDay(day).week} - Day {dateFromDay(day).day}
+        Week { date.week } - Day { date.day }
       </span>
       <Anchor link={ `/schedule/${ parseValue(1) }`}>
         <ElementIcon icon="keyboard_arrow_right" />

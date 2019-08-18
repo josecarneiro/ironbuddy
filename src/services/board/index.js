@@ -11,7 +11,7 @@ export default async () => {
     const schedule = extractScheduleFromBoard(board);
     const events = extractEventsFromBoard(board);
     const updates = extractUpdatesFromBoard(board);
-    console.log(updates);
+    // console.log(updates);
     const resources = {};
     return { schedule, events, resources };
   } catch (error) {

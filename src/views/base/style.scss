@@ -1,33 +1,52 @@
 @import './../../style/variables';
 
 .page {
-  padding: 0 1em;
+  // padding: 0 1em;
   margin-top: 1em;
 }
 
 .page--base {
+  display: flex;
+  flex-direction: column;
   // padding: 0 1em;
   @media (min-width: $breakpoint-tablet) {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-columns: [col1-start] auto [col2-start] 35% [col2-end];
-    grid-template-rows: [row1-start] auto [row2-start] auto [row3-end];
-    // display: flex;
-    padding: 0;
-    .page__header {
-      grid-column: col1-start;
-      grid-row: row1-start;
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
+    .page__header,
     .page__main,
     .page__aside {
-      grid-row: row2-start;
+      flex: 1 1 auto;
+    }
+    .page__header {
+      flex-basis: 100%;
     }
     .page__main {
-      grid-column: col1-start;
+      flex-basis: 65%;
     }
     .page__aside {
-      grid-column: col2-start;
+      flex-basis: calc(35% - 1em);
+      margin-left: 1em;
     }
+    // display: grid;
+    // grid-gap: 1em;
+    // grid-template-columns: [col1-start] auto [col2-start] 35% [col2-end];
+    // grid-template-rows: [row1-start] auto [row2-start] auto [row3-end];
+    // display: flex;
+    // padding: 0;
+    // .page__header {
+    //   grid-column: col1-start;
+    //   grid-row: row1-start;
+    // }
+    // .page__main,
+    // .page__aside {
+    //   grid-row: row2-start;
+    // }
+    // .page__main {
+    //   grid-column: col1-start;
+    // }
+    // .page__aside {
+    //   grid-column: col2-start;
+    // }
   }
 }
 
