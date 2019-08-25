@@ -10,7 +10,7 @@ import {
 export default () => (
   <footer className="app__footer">
     <div className="container">
-      <ElementAnchor link="/">About IronBuddy</ElementAnchor>
+      {/* <ElementAnchor link="/">About IronBuddy</ElementAnchor> */}
       <ElementAnchor link="/extension">Extension</ElementAnchor>
       <small>Version { version }</small>
     </div>

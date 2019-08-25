@@ -44,7 +44,7 @@ const ScheduleItem = ({
 }) => {
   const classes = [ 'schedule__item', {
     ...type && {
-      [`schedule__item--${type}`]: true
+      [ `schedule__item--${ type.split(' ').join('-').toLowerCase() }` ]: true
     }
   }];
   return (

@@ -1,41 +1,50 @@
 @import "./../../style/variables";
 
 .schedule__item {
-  & > span {
-    // font-weight: bold;
-    // font-size: 1.125em;
-  }
+  // & > span {
+  //   font-weight: bold;
+  //   font-size: 1.125em;
+  // }
   &.card {
     overflow: initial;
+  }
+  &[class*="schedule__item--"] {
+    color: white;
   }
 }
 
 .schedule__item--lesson {
   --card-color: #{ $blue };
-  color: white;
+}
+
+.schedule__item--team-work {
+  --card-color: #{ $orange };
+}
+
+.schedule__item--self-guided {
+  --card-color: #{ $purple };
+}
+
+.schedule__item--presentation {
+  // --card-color: #{ $pink };
+  --card-color: #{ $aqua };
 }
 
 .schedule__item--lab,
 .schedule__item--exercise {
-  // --card-color: #{ $yellow };
   --card-color: #{ $green };
-  color: white;
 }
 
 .schedule__item--review {
-  // --card-color: #{ $purple };
   --card-color: #{ $yellow };
-  color: white;
 }
 
 .schedule__item--null {
   --card-color: #{ $yellow };
-  color: white;
 }
 
 .schedule__item--career {
   --card-color: #{ $red };
-  color: white;
 }
 
 @mixin uppercase () {
