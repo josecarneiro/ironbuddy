@@ -1,10 +1,6 @@
 @import "./../../style/variables";
 
 .schedule__item {
-  // & > span {
-  //   font-weight: bold;
-  //   font-size: 1.125em;
-  // }
   &.card {
     overflow: initial;
   }
@@ -39,11 +35,7 @@
   --card-color: #{ $yellow };
 }
 
-.schedule__item--null {
-  --card-color: #{ $yellow };
-}
-
-.schedule__item--career {
+.schedule__item--career-development {
   --card-color: #{ $red };
 }
 
